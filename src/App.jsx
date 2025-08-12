@@ -630,7 +630,7 @@ export default function App() {
                 {/* 제외 키워드 수 정보 */}
                 <Box 
                   sx={{ 
-                    p: 1, 
+                    p: 2, 
                     bgcolor: "rgba(255,255,255,0.05)",
                     borderRadius: 1,
                     border: "1px solid rgba(255,255,255,0.1)",
@@ -641,7 +641,7 @@ export default function App() {
                     TOTAL EXCLUDED KEYWORDS
                   </Typography>
                   <Box sx={{ display: "flex", alignItems: "baseline", justifyContent: "center" }}>
-                    <Typography sx={{ color: "#fff", fontSize: 24, fontWeight: 800, lineHeight: 1 }}>
+                    <Typography sx={{ color: "#fff", fontSize: 32, fontWeight: 800, lineHeight: 1 }}>
                       {remainingRowsAll.length}
                     </Typography>
                     <Typography sx={{ fontSize: 16, marginLeft: 1, color: "rgba(255,255,255,0.6)" }}>
