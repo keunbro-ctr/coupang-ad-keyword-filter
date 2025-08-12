@@ -579,7 +579,7 @@ export default function App() {
             elevation={3}
             sx={{ 
               p: 3,
-              bgcolor: "#13185a",
+              bgcolor: "#080a27",
               position: "relative",
               overflow: "hidden",
               border: "2px solid #1976d2",
@@ -599,53 +599,55 @@ export default function App() {
 
             {/* 콘텐츠 */}
             <Box sx={{ position: "relative", zIndex: 1 }}>
-              <Box sx={{ mb: 2.5 }}>
+              {/* 상단 제목과 키워드 수 */}
+              <Box sx={{ mb: 2 }}>
                 <Typography sx={{ color: "#1976d2", fontSize: 11, fontWeight: 600, letterSpacing: 1, mb: 0.5 }}>
                   ESTIMATED SAVINGS
                 </Typography>
-                <Typography sx={{ color: "#fff", fontSize: 20, fontWeight: 800, letterSpacing: -0.5 }}>
-                  예상 누수액 절감
-                </Typography>
+                <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between", mb: 1 }}>
+                  <Typography sx={{ color: "#fff", fontSize: 18, fontWeight: 800, letterSpacing: -0.5 }}>
+                    예상 누수액 절감
+                  </Typography>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
+                    <Typography sx={{ color: "rgba(255,255,255,0.5)", fontSize: 12 }}>
+                      제외키워드
+                    </Typography>
+                    <Typography sx={{ color: "#1976d2", fontSize: 14, fontWeight: 700 }}>
+                      {remainingRowsAll.length}개
+                    </Typography>
+                  </Box>
+                </Box>
               </Box>
 
-              {/* 금액 표시 */}
+              {/* 메인 금액 박스 */}
               <Box sx={{ mb: 3 }}>
-                <Box sx={{ display: "flex", alignItems: "baseline", mb: 2 }}>
-                  <Typography
-                    sx={{
-                      fontSize: 42,
-                      fontWeight: 900,
-                      color: "#fff",
-                      letterSpacing: "-1.5px",
-                      lineHeight: 1,
-                    }}
-                  >
-                    {fmtInt(totalSavedLoss)}
-                  </Typography>
-                  <Typography sx={{ fontSize: 24, color: "rgba(255,255,255,0.7)", ml: 1, fontWeight: 500 }}>
-                    원
-                  </Typography>
-                </Box>
-
-                {/* 제외 키워드 수 정보 */}
                 <Box 
                   sx={{ 
-                    p: 2, 
-                    bgcolor: "rgba(255,255,255,0.05)",
-                    borderRadius: 1,
-                    border: "1px solid rgba(255,255,255,0.1)",
+                    p: 3, 
+                    bgcolor: "rgba(25,118,210,0.08)",
+                    borderRadius: 2,
+                    border: "1px solid rgba(25,118,210,0.2)",
                     textAlign: "center"
                   }}
                 >
-                  <Typography sx={{ color: "rgba(255,255,255,0.5)", fontSize: 11, mb: 1, fontWeight: 600, letterSpacing: 0.5 }}>
-                    TOTAL EXCLUDED KEYWORDS
+                  <Typography sx={{ color: "rgba(255,255,255,0.6)", fontSize: 12, mb: 1.5, fontWeight: 500 }}>
+                    이번 달 예상 절감액
                   </Typography>
                   <Box sx={{ display: "flex", alignItems: "baseline", justifyContent: "center" }}>
-                    <Typography sx={{ color: "#fff", fontSize: 32, fontWeight: 800, lineHeight: 1 }}>
-                      {remainingRowsAll.length}
+                    <Typography
+                      sx={{
+                        fontSize: 48,
+                        fontWeight: 900,
+                        color: "#fff",
+                        letterSpacing: "-2px",
+                        lineHeight: 1,
+                        textShadow: "0 0 20px rgba(25,118,210,0.3)",
+                      }}
+                    >
+                      {fmtInt(totalSavedLoss)}
                     </Typography>
-                    <Typography sx={{ fontSize: 16, marginLeft: 1, color: "rgba(255,255,255,0.6)" }}>
-                      개
+                    <Typography sx={{ fontSize: 24, color: "rgba(255,255,255,0.6)", ml: 1.5, fontWeight: 400 }}>
+                      원
                     </Typography>
                   </Box>
                 </Box>
