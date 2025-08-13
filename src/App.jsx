@@ -64,7 +64,9 @@ export default function App() {
           .map((row, idx) => {
             const campaign = String(getFrom(row, COL.campaign) || "").trim();
             const keyword = String(getFrom(row, COL.keyword) || "").trim();
-            if (keyword === "-") return null; // 비검색 영역 → 제외
+            
+            // 키워드가 비어있거나 "-"인 경우 제외
+            if (!keyword || keyword === "" || keyword === "-") return null;
 
             const cost = toNum(getFrom(row, COL.cost));
             const sales = toNum(getFrom(row, COL.sales14));
